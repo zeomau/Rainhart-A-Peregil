@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Portfolio of Rainhart A. Peregil — IT, videography, photography, video editing, and music production.">
+  <title>Rainhart A. Peregil | Creative Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Rainhart home">
+      <span class="brand-mark">RP</span>
+      <span>Rainhart A. Peregil</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#about">About Me</a>  
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">HELLO, I'M</p>
+        <h1>Rain Hart<br><span></span></h1>
+        <p class="role-line"><span class="role-prefix">I'm a </span><span id="typingText"></span><span
+            class="cursor">|</span></p>
+        <p class="hero-description">Blending technology, art and sound into meaningful experiences.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">View My Work <span>↗</span></a>
+          <a class="button button-outline" href="#contact">Let's Talk</a>
+        </div>
+        <div class="skills">
+          <p class="skills-title">MY PROGRAMMING LANGUAGE and TOOL</p>
+          <div class="skill-list">
+            <span>Python</span> <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span><span>React-Native</span>
+            <span>SQL / MySQL</span><span>Video Editing</span><span>Photography</span><span>Music Production</span><span>Davinci Resolver</span><span>Adobe Lightroom</span><span>Capcut</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img class="person-cutout" src="assets/rainhart-cutout.png" alt="Rainhart A. Peregil">
+      </div>
+      <a class="scroll-cue" href="#about"><span></span> SCROLL TO EXPLORE</a>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">A LITTLE ABOUT ME</p>
+        <h2>Web Developer <br><span>creative music and video content.</span></h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I'm Rainhart A. Peregil, an Information Technology student with a passion for building digital experiences
+            and creating visual content. I enjoy working across web development, videography, photography, video
+            editing, and music production.</p>
+          <p>Whether I'm developing a website, capturing a moment, editing a video, or producing music, I aim to turn
+            ideas into meaningful work that connects with people.</p>
+          <a class="text-link" href="#contact">Have a project in mind? <span>→</span></a>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><span class="service-icon">⌘</span>
+            <h3>IT & Web</h3>
+            <p>Building practical, user-friendly websites and digital solutions.</p>
+          </article>
+          <article class="service-card"><span class="service-icon">◎</span>
+            <h3>Photo & Video</h3>
+            <p>Capturing moments and shaping stories through visuals.</p>
+          </article>
+          <article class="service-card"><span class="service-icon">▶</span>
+            <h3>Video Editing</h3>
+            <p>Turning raw footage into polished, engaging content.</p>
+          </article>
+          <article class="service-card"><span class="service-icon">♫</span>
+            <h3>Music Production</h3>
+            <p>Creating sounds and music to bring ideas to life.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects section" id="projects">
+      <div class="projects-heading">
+        <div class="section-heading">
+          <p class="eyebrow">SELECTED PROJECT</p>
+          <h2>Projects I've <span>worked on.</span></h2>
+        </div>
+        <p class="section-note">technology, design, and creative problem solving.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-art kiosk-art">
+            <div class="mock-phone phone-one">
+              <div class="phone-top"></div>
+              <div class="mock-logo">K.</div>
+              <div class="mock-line"></div>
+              <div class="mock-item"></div>
+              <div class="mock-item short"></div>
+            </div>
+            <div class="mock-phone phone-two">
+              <div class="phone-top"></div>
+              <div class="mock-coffee">☕</div>
+              <div class="mock-line"></div>
+              <div class="mock-item"></div>
+              <div class="mock-item short"></div>
+            </div>
+            <span class="art-label">MOBILE APP</span>
+          </div>
+          <div class="project-info">
+            <div class="project-meta"><span>01 / APPLICATION</span><span class="project-arrow">↗</span></div>
+            <h3>KIOSK App</h3>
+            <p>A mobile ordering system concept designed to help users browse products, choose items, and place orders
+              through a simple interface.</p>
+            <div class="project-tags"><span>Mobile UI</span><span>Ordering System</span></div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-art coffee-art">
+            <img src="assets/coffee-time-preview.png" alt="Coffee Time cafe homepage featuring iced coffee and matcha">
+            <span class="art-label">WEB DEVELOPMENT</span>
+          </div>
+          <div class="project-info">
+            <div class="project-meta"><span>02 / WEBSITE</span><span class="project-arrow">↗</span></div>
+            <h3>Coffee Time</h3>
+            <p>An online coffee shop ordering website where customers can explore the menu and place orders with
+              ease.</p>
+            <div class="project-tags"><span>Node.js</span><span>SQL</span><span>Web Design</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="project-disclaimer">This is all my project sample</p>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="contact-panel">
+        <p class="eyebrow">HAVE SOMETHING IN MIND?</p>
+        <h2>Let's make something<br><span>meaningful together.</span></h2>
+        <p>Have a website idea, a video project, or a creative collaboration in mind? Let's get in touch.</p>
+        <a class="button button-primary" href="https://www.facebook.com/cuteniRain" target="_blank" rel="noopener noreferrer">Message Me<span>↗</span></a>
+        <small class="email-hint">Keep Safe!</small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">RP</span><span>Rainhart A. Peregil</span></a>
+    <p>Let's Start Up</p>
+    <a href="#home" class="back-top">BACK TO TOP ↑</a>
+    <span class="copyright">© <span id="year"></span> Rainhart A. Peregil</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -18,12 +18,19 @@
  html {
    scroll-behavior: smooth;
    scroll-padding-top: 85px;
+ }
+
+ html,
+ body {
    scrollbar-width: none;
    -ms-overflow-style: none;
  }
 
- html::-webkit-scrollbar {
+ html::-webkit-scrollbar,
+ body::-webkit-scrollbar {
    display: none;
+   width: 0;
+   height: 0;
  }
 
  body {

@@ -35,8 +35,48 @@ typeRole();
 
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("nav");
+const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+const sections = navLinks
+  .map(link => document.getElementById(link.getAttribute("href").slice(1)))
+  .filter(section => section);
 let scrollAnimationFrame = 0;
+let activeSectionFrame = 0;
 let previousScrollBehavior = "";
+
+function setActiveNav(sectionId) {
+  navLinks.forEach(link => {
+    const isActive = link.getAttribute("href") === `#${sectionId}`;
+    link.classList.toggle("active", isActive);
+
+    if (isActive) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+function updateActiveNav() {
+  if (activeSectionFrame) {
+    return;
+  }
+
+  activeSectionFrame = requestAnimationFrame(() => {
+    const header = document.querySelector(".site-header");
+    const activationLine = window.scrollY + header.offsetHeight
+      + (window.innerHeight - header.offsetHeight) / 2;
+    let activeSection = sections[0];
+
+    sections.forEach(section => {
+      if (section.getBoundingClientRect().top + window.scrollY <= activationLine) {
+        activeSection = section;
+      }
+    });
+
+    setActiveNav(activeSection.id);
+    activeSectionFrame = 0;
+  });
+}
 
 function cancelScrollAnimation() {
   if (!scrollAnimationFrame) {
@@ -104,6 +144,10 @@ menuToggle.addEventListener("click", () => {
   menuToggle.textContent = isOpen ? "×" : "☰";
 });
 
+window.addEventListener("scroll", updateActiveNav, { passive: true });
+window.addEventListener("resize", updateActiveNav);
+updateActiveNav();
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", event => {
     const href = link.getAttribute("href");
@@ -117,9 +161,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     nav.classList.remove("open");
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.textContent = "☰";
-    document.querySelectorAll(".nav-link").forEach(item => {
-      item.classList.toggle("active", item.getAttribute("href") === href);
-    });
+    setActiveNav(href.slice(1));
 
     if (window.location.hash !== href) {
       history.pushState(null, "", href);

@@ -398,7 +398,7 @@ async function toggleMusic() {
     }
   } catch (error) {
     musicStatus.textContent = error.name === "NotAllowedError"
-      ? "Your browser blocked autoplay. Press the floating play button to start the track."
+      ? "Playback was blocked. Please press the floating play button to try again."
       : "The audio could not load. Open the portfolio with VS Code Live Server and try again.";
     console.error("Unable to play the music visualizer track.", error);
   }
@@ -430,19 +430,4 @@ audioPlayer.addEventListener("ended", () => {
 
 window.addEventListener("beforeunload", () => {
   cancelAnimationFrame(animationFrame);
-});
-
-connectAudioVisualizer();
-audioPlayer.play().then(() => {
-  audioContext.resume().catch(error => {
-    console.error("Unable to resume the audio visualizer.", error);
-  });
-}).catch(error => {
-  if (error.name !== "NotAllowedError") {
-    musicStatus.textContent = "The audio could not load. Open the portfolio with VS Code Live Server and try again.";
-    console.error("Unable to autoplay the music visualizer track.", error);
-    return;
-  }
-
-  musicStatus.textContent = "Autoplay was blocked. Press the floating play button to start the track.";
 });

@@ -176,7 +176,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const audioPlayer = document.getElementById("audioPlayer");
 const musicControl = document.getElementById("musicControl");
 const musicControlIcon = document.getElementById("musicControlIcon");
-const musicStatus = document.getElementById("musicStatus");
 const canvas = document.getElementById("visualizerCanvas");
 const canvasContext = canvas.getContext("2d");
 let audioContext;
@@ -397,9 +396,6 @@ async function toggleMusic() {
       audioPlayer.pause();
     }
   } catch (error) {
-    musicStatus.textContent = error.name === "NotAllowedError"
-      ? "Playback was blocked. Please press the floating play button to try again."
-      : "The audio could not load. Open the portfolio with VS Code Live Server and try again.";
     console.error("Unable to play the music visualizer track.", error);
   }
 }
@@ -411,7 +407,6 @@ audioPlayer.addEventListener("play", () => {
   musicControl.setAttribute("aria-pressed", "true");
   musicControl.setAttribute("aria-label", "Pause music");
   musicControl.title = "Pause music";
-  musicStatus.textContent = "";
 });
 
 audioPlayer.addEventListener("pause", () => {

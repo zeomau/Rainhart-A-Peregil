@@ -286,13 +286,6 @@
    background: linear-gradient(135deg, #c5baff, #806aff);
  }
 
- .music-status {
-   min-height: 1.5em;
-   margin-top: 10px;
-   color: var(--gold-light);
-   font-size: 12px;
- }
-
  .skills {
    margin-top: 43px;
  }

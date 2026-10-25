@@ -252,6 +252,47 @@
    color: var(--gold-light);
  }
 
+ .floating-audio-control {
+   position: fixed;
+   right: 24px;
+   bottom: max(24px, env(safe-area-inset-bottom));
+   z-index: 25;
+   display: grid;
+   place-items: center;
+   width: 36px;
+   height: 36px;
+   border: 1px solid rgba(197, 186, 255, .7);
+   border-radius: 50%;
+   background: linear-gradient(135deg, #a58cff, #6547f5);
+   box-shadow: 0 8px 28px rgba(101, 71, 245, .38);
+   color: #100e1d;
+   font-family: inherit;
+   font-size: 12px;
+   cursor: pointer;
+   transition: transform .2s, box-shadow .2s;
+ }
+
+ .floating-audio-control:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 11px 32px rgba(101, 71, 245, .5);
+ }
+
+ .floating-audio-control:focus-visible {
+   outline: 2px solid var(--gold-light);
+   outline-offset: 4px;
+ }
+
+ .floating-audio-control[aria-pressed="true"] {
+   background: linear-gradient(135deg, #c5baff, #806aff);
+ }
+
+ .music-status {
+   min-height: 1.5em;
+   margin-top: 10px;
+   color: var(--gold-light);
+   font-size: 12px;
+ }
+
  .skills {
    margin-top: 43px;
  }
@@ -283,11 +324,18 @@
 
  .hero-visual {
    position: relative;
+   isolation: isolate;
    align-self: end;
    justify-self: center;
    max-width: 570px;
    width: 100%;
    margin-bottom: -80px;
+   padding: 0;
+   overflow: visible;
+   border: 0;
+   background: transparent;
+   color: inherit;
+   text-align: center;
  }
 
  .hero-visual::before {
@@ -303,20 +351,38 @@
 
  .person-cutout {
    position: relative;
-   z-index: 1;
+   z-index: 2;
    display: block;
    width: 100%;
    height: auto;
    margin: 0 auto;
    transform: scaleX(-1);
    filter: drop-shadow(0 18px 18px rgba(0, 0, 0, .55)) drop-shadow(0 24px 42px rgba(91, 75, 198, .48));
+   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 97%, transparent 100%), linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+   -webkit-mask-composite: source-in;
+   mask-image: linear-gradient(to bottom, #000 0%, #000 97%, transparent 100%), linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+   mask-composite: intersect;
+   pointer-events: none;
  }
 
- .hero-visual .person-cutout {
-   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%), linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%);
-   -webkit-mask-composite: source-in;
-   mask-image: linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%), linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%);
-   mask-composite: intersect;
+ .hero-visualizer {
+   position: absolute;
+   z-index: 1;
+   top: -12%;
+   right: -15%;
+   left: -15%;
+   display: block;
+   width: 130%;
+   height: 124%;
+   pointer-events: none;
+ }
+
+ @media (max-width: 680px) {
+   .hero-visualizer {
+     right: -22.5%;
+     left: -22.5%;
+     width: 145%;
+   }
  }
 
  .scroll-cue {
@@ -717,6 +783,13 @@
 
    .scroll-cue {
      display: none;
+   }
+
+   .floating-audio-control {
+     right: 18px;
+     bottom: max(18px, env(safe-area-inset-bottom));
+     width: 32px;
+     height: 32px;
    }
 
    .about-content,

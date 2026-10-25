@@ -42,6 +42,7 @@
           <a class="button button-primary" href="#projects">View My Work <span>↗</span></a>
           <a class="button button-outline" href="#contact">Let's Talk</a>
         </div>
+        <p class="music-status" id="musicStatus" aria-live="polite"></p>
         <div class="skills">
           <p class="skills-title">MY PROGRAMMING LANGUAGE and TOOL</p>
           <div class="skill-list">
@@ -51,8 +52,12 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img class="person-cutout" src="rainhart-cutout.png" alt="Rainhart A. Peregil">
+        <canvas class="hero-visualizer" id="visualizerCanvas" aria-hidden="true"></canvas>
+        <img class="person-cutout" src="rainhart-cutout.png" alt="">
       </div>
+      <audio id="audioPlayer" src="Na_Para_Bang_Male.mp3" preload="auto" loop></audio>
+      <button class="floating-audio-control" id="musicControl" type="button" aria-label="Play music"
+        aria-pressed="false" title="Play music"><span id="musicControlIcon" aria-hidden="true">▶</span></button>
       <a class="scroll-cue" href="#about"><span></span> SCROLL TO EXPLORE</a>
     </section>
 
